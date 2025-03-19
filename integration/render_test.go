@@ -2649,3 +2649,10 @@ func TestRenderRemoteKustomize(t *testing.T) {
 		skaffold.Render().InDir("testdata/kustomize/remote").RunOrFail(t.T)
 	})
 }
+
+func TestRenderKustomizeWithInlinePatch(t *testing.T) {
+	testutil.Run(t, "render kustomize inline patch with parameterization success ", func(t *testutil.T) {
+		MarkIntegrationTest(t.T, CanRunWithoutGcp)
+		skaffold.Render("--offline", "--set", "foo=bar").InDir("testdata/kustomize/inline-patch").RunOrFail(t.T)
+	})
+}

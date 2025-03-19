@@ -1,0 +1,7 @@
+apiVersion: skaffold/v4beta2
+kind: Config
+
+manifests:
+  kustomize:
+    paths:
+      - .
